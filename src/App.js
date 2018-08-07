@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css'
 import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap'
-
-
+import { connect } from 'react-redux'
+import { updateAlbum } from './actions/albums-actions'
 
 
 class App extends Component {
@@ -11,6 +11,10 @@ class App extends Component {
 		this.state = {
 			query: ''
 		}
+		this.onUpdateAlbum = this.onUpdateAlbum.bind(this);
+	}
+	onUpdateAlbum(){
+		this.props.onUpdateAlbum('1989');
 	}
 
 	search(){
@@ -24,6 +28,7 @@ class App extends Component {
 	}
 
 	render (){
+		console.log(this.props)
 		return(
 			<div>
 				<header role="banner">
@@ -59,6 +64,8 @@ class App extends Component {
 					<section className="gallery">
 						gallery
 					</section>
+					<div onClick={this.onUpdateAlbum} >Update Album</div>
+					{this.props.album}
 				</main>
 			</div>
 		)
@@ -66,4 +73,13 @@ class App extends Component {
 
 }
 
-export default App;
+const mapStateToProps = state => ({
+	artists: state.artists,
+	albums: state.albums
+});
+
+const mapActionsToProps = {
+	onUpdateAlbum: updateAlbum
+};
+
+export default connect(mapStateToProps, mapActionsToProps)(App);
