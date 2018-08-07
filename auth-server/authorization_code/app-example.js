@@ -12,9 +12,9 @@ var request = require('request'); // "Request" library
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 
-var client_id = 'db3464895b1143efac929c0c9558fe28'; // Your client id
-var client_secret = '456b12001e134de78f7337853a5950c7'; // Your secret
-var redirect_uri = 'https://codelovecode.com/spotify_callback'; // Or Your redirect uri
+var client_id = 'YOUR_CLIENT_IS'; // Your client id
+var client_secret = 'YOUR_CLIENT_SECRET'; // Your secret
+var redirect_uri = 'YOUR_CALLBACK URL'; // Or Your redirect uri
 
 /**
  * Generates a random string containing numbers and letters
